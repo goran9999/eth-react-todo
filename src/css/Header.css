@@ -1,0 +1,14 @@
+.header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: #14044d;
+    color: whitesmoke;
+
+}
+.title{
+    margin-left:40px;
+}
+.account{
+    margin-right: 40px;
+}
