@@ -24,6 +24,7 @@ function App() {
   },[])
 
   const configureWeb3 = async () =>{
+
     const web3=new Web3(Web3.givenProvider || "127.0.0.1:8545");
     const account= await web3.eth.getAccounts();
     setAccount(account);
@@ -39,13 +40,16 @@ function App() {
         setTodosCompletedTasks(prevValue=>[...prevValue,task]);
       }
     }
+
    
   }
 
   const saveTodo = async (todoText) => {
+
     await todo.methods.kreirajZadatak(todoText).send({from:account[0]})
     .once('receit',(receit)=>{
     })
+
 
     window.location.reload();
 
@@ -66,6 +70,7 @@ function App() {
     <div className="App">
       <Header account={account}/>
       <TaskForm onSaveTask={saveTodo}/>
+      <p>Loading...</p>
       <TaskList tasks={todosPendingTasks} title="Pending tasks" onToggleItem={toggleItem}/>
       <TaskList tasks={todosCompletedTasks} title="Completed tasks" onToggleItem={toggleItem}/>
      
